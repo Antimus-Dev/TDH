@@ -1,48 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 7.4.4.2 (Linux)"/>
-	<meta name="created" content="00:00:00"/>
-	<meta name="changed" content="00:00:00"/>
-	<style type="text/css">
-		@page { size: 8.27in 11.69in; margin: 0.79in }
-		p { line-height: 115%; margin-bottom: 0.1in; background: transparent }
-		pre { font-family: "Liberation Mono", monospace; font-size: 10pt; background: transparent }
-	</style>
-</head>
-<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><pre>&lt;!-- Copyright (c) 2023 8th Wall, Inc. --&gt;
-&lt;!-- head.html is optional; elements will be added to your html head before app.js is loaded. --&gt;
+<!-- Copyright (c) 2023 8th Wall, Inc. -->
+<!-- head.html is optional; elements will be added to your html head before app.js is loaded. -->
 
-&lt;!-- Use &quot;8thwall:&quot; meta tags to hook into 8th Wall's build process and developer tools. --&gt;
-&lt;meta name=&quot;8thwall:renderer&quot; content=&quot;aframe:1.3.0&quot;&gt;
-&lt;meta name=&quot;8thwall:package&quot; content=&quot;@8thwall.xrextras&quot;&gt;
-&lt;meta name=&quot;8thwall:package&quot; content=&quot;@8thwall.landing-page&quot;&gt;
+<!-- Use "8thwall:" meta tags to hook into 8th Wall's build process and developer tools. -->
+<meta name="8thwall:renderer" content="aframe:1.3.0">
+<meta name="8thwall:package" content="@8thwall.xrextras">
+<meta name="8thwall:package" content="@8thwall.landing-page">
 
-&lt;!-- Other external scripts and meta tags can also be added. --&gt;
-&lt;script src=&quot;//cdn.8thwall.com/web/aframe/aframe-extras-6.1.1.min.js&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@tagOrCommit/dist/aframe-extras.min.js&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;https://rawcdn.githack.com/elbobo/aframe-gltf-morph-component/07e9b80bd382cc1c19223468d35c453e7c76e9a2/dist/aframe-gltf-morph-component.js&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;https://unpkg.com/aframe-postprocessing-component/dist/aframe-postprocessing-component.min.js&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt; 
-&lt;script src=&quot;https://github.com/wizgrav/aframe-effects.git&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+<!-- Other external scripts and meta tags can also be added. -->
+<script src="//cdn.8thwall.com/web/aframe/aframe-extras-6.1.1.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@tagOrCommit/dist/aframe-extras.min.js" crossorigin="anonymous"></script>
+<script src="https://rawcdn.githack.com/elbobo/aframe-gltf-morph-component/07e9b80bd382cc1c19223468d35c453e7c76e9a2/dist/aframe-gltf-morph-component.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/aframe-postprocessing-component/dist/aframe-postprocessing-component.min.js" crossorigin="anonymous"></script> 
+<script src="https://github.com/wizgrav/aframe-effects.git" crossorigin="anonymous"></script>
 
-  
- &lt;!--
-&lt;script src=&quot;https://cdn.rawgit.com/donmccurdy/aframe-extras/v6.1.0/dist/aframe-extras.min.js&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/postprocessing/EffectComposer.js&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/postprocessing/RenderPass.js&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/shaders/LuminosityHighPassShader.js&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/shaders/CopyShader.js&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/shaders/SMAAShader.js&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/postprocessing/ShaderPass.js&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/postprocessing/SMAAPass.js&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/postprocessing/TexturePass.js&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;https://unpkg.com/three@0.132.2/examples/js/loaders/GLTFLoader.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;//mrdoob.github.io/stats.js/build/stats.min.js&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.min.js&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;    
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, user-scalable=no&quot;&gt; 
---&gt; </pre>
-</body>
-</html>
+<script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v6.1.0/dist/aframe-extras.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/postprocessing/EffectComposer.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/postprocessing/RenderPass.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/shaders/LuminosityHighPassShader.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/shaders/CopyShader.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/shaders/SMAAShader.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/postprocessing/ShaderPass.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/postprocessing/SMAAPass.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/postprocessing/TexturePass.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
+<script src="//mrdoob.github.io/stats.js/build/stats.min.js" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.min.js" crossorigin="anonymous"></script>    
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> 

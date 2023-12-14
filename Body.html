@@ -1,129 +1,113 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 7.4.4.2 (Linux)"/>
-	<meta name="created" content="00:00:00"/>
-	<meta name="changed" content="00:00:00"/>
-	<style type="text/css">
-		@page { size: 8.27in 11.69in; margin: 0.79in }
-		p { line-height: 115%; margin-bottom: 0.1in; background: transparent }
-		pre { font-family: "Liberation Mono", monospace; font-size: 10pt; background: transparent }
-	</style>
-</head>
-<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><pre>&lt;!-- Copyright (c) 2023 8th Wall, Inc. --&gt;
-&lt;!-- body.html is optional; elements will be added to your html body after app.js is loaded.        renderer=&quot;colorManagement: true&quot; --&gt;
-&lt;a-scene
-  id=&quot;mainScene&quot;
+<!-- Copyright (c) 2023 8th Wall, Inc. -->
+<!-- body.html is optional; elements will be added to your html body after app.js is loaded.        renderer="colorManagement: true" -->
+<a-scene
+  id="mainScene"
   landing-page
-  cursor=&quot;rayOrigin: mouse;
-  objects: .cantap&quot;
-  effects=&quot;bloom, fxaa, godrays&quot; 
-  bloom=&quot;
+  cursor="rayOrigin: mouse;
+  objects: .cantap"
+  effects="bloom, fxaa, godrays" 
+  bloom="
   radius: 1;
   strength: 1;
-  threshold: .2&quot; 
+  threshold: .2" 
   godrays
   fxaa
   xrextras-loading
   button-behavior
   xrextras-runtime-error
-  xrweb=&quot;disableWorldTracking: true;
-          allowedDevices: any&quot;&gt;  
-  &lt;a-camera
-    id=&quot;camera&quot;
-    position=&quot;0 8 8&quot;
-    raycaster=&quot;objects: .cantap&quot;
-    post-processing=&quot;enabled: true&quot;&gt;
-  &lt;/a-camera&gt; 
+  xrweb="disableWorldTracking: true;
+          allowedDevices: any">  
+  <a-camera
+    id="camera"
+    position="0 8 8"
+    raycaster="objects: .cantap"
+    post-processing="enabled: true">
+  </a-camera> 
 
-  &lt;canvas id=&quot;camerafeed&quot;&gt;&lt;/canvas&gt;
+  <canvas id="camerafeed"></canvas>
 
-  &lt;a-assets&gt;
-    &lt;a-asset-item id=&quot;mountainBase&quot; src=&quot;assets/Mountainz.gltf&quot;&gt;&lt;/a-asset-item&gt;
-    &lt;a-asset-item id=&quot;mountainTopo&quot; src=&quot;assets/Mountain_Topo.glb&quot;&gt;&lt;/a-asset-item&gt;
-    &lt;img id=&quot;mountainTexture&quot; src=&quot;assets/DH_MAT_MountainTop_Base_color_ReducedResolution.jpg&quot;&gt;
-    &lt;img id=&quot;mountainNormal&quot; src=&quot;assets/DH_T_MountainTop_Normal.png&quot;&gt;  
-    &lt;img id=&quot;enter1&quot; src=&quot;assets/Enter-1.png&quot;&gt; 
-    &lt;img id=&quot;enter2&quot; src=&quot;assets/Enter-2.png&quot;&gt; 
-    &lt;img id=&quot;enter3&quot; src=&quot;assets/Enter-3.png&quot;&gt; 
-    &lt;img id=&quot;enter4&quot; src=&quot;assets/Enter-4.png&quot;&gt; 
-    &lt;img id=&quot;enter5&quot; src=&quot;assets/Enter-5.png&quot;&gt; 
-    &lt;img id=&quot;enter6&quot; src=&quot;assets/Enter-6.png&quot;&gt;  
-    &lt;img id=&quot;alpha&quot; src=&quot;assets/dirt.png&quot;&gt; 
-    &lt;a-asset-item id=&quot;sfx-shimmer&quot; src=&quot;assets/sfx-shimmer.mp3&quot;&gt;&lt;/a-asset-item&gt;
-    &lt;a-asset-item id=&quot;ambient&quot; src=&quot;assets/ambient.mp3&quot;&gt;&lt;/a-asset-item&gt;
-    &lt;a-asset-item id=&quot;buttonAudio&quot; src=&quot;assets/buttonAudio.mp3&quot;&gt;&lt;/a-asset-item&gt;
-    &lt;a-asset-item id=&quot;linkButton&quot; src=&quot;assets/LinkButtonDoublesided.glb&quot;&gt;&lt;/a-asset-item&gt;
-    &lt;/a-assets&gt;
+  <a-assets>
+    <a-asset-item id="mountainBase" src="assets/Mountainz.gltf"></a-asset-item>
+    <a-asset-item id="mountainTopo" src="assets/Mountain_Topo.glb"></a-asset-item>
+    <img id="mountainTexture" src="assets/DH_MAT_MountainTop_Base_color_ReducedResolution.jpg">
+    <img id="mountainNormal" src="assets/DH_T_MountainTop_Normal.png">  
+    <img id="enter1" src="assets/Enter-1.png"> 
+    <img id="enter2" src="assets/Enter-2.png"> 
+    <img id="enter3" src="assets/Enter-3.png"> 
+    <img id="enter4" src="assets/Enter-4.png"> 
+    <img id="enter5" src="assets/Enter-5.png"> 
+    <img id="enter6" src="assets/Enter-6.png">  
+    <img id="alpha" src="assets/dirt.png"> 
+    <a-asset-item id="sfx-shimmer" src="assets/sfx-shimmer.mp3"></a-asset-item>
+    <a-asset-item id="ambient" src="assets/ambient.mp3"></a-asset-item>
+    <a-asset-item id="buttonAudio" src="assets/buttonAudio.mp3"></a-asset-item>
+    <a-asset-item id="linkButton" src="assets/LinkButtonDoublesided.glb"></a-asset-item>
+    </a-assets>
 
 
-  &lt;a-entity image-target-card=&quot;name: NotebookTargetImage&quot; visible=&quot;false&quot;&gt;  
+  <a-entity image-target-card="name: NotebookTargetImage" visible="false">  
 
-  &lt;a-entity
-      id=&quot;enter&quot;
-      class=&quot;cantap&quot;
-      gltf-model=&quot;#linkButton&quot; 
-      rotation= &quot;90 0 0&quot;
-      position= &quot;-0.04 0.1 0.4&quot;
-      scale= &quot;.04 .04 .04&quot;
+  <a-entity
+      id="enter"
+      class="cantap"
+      gltf-model="#linkButton" 
+      rotation= "90 0 0"
+      position= "-0.04 0.1 0.4"
+      scale= ".04 .04 .04"
       visible= false
-      model-opacity=&quot;0&quot;
-  &gt;&lt;/a-entity&gt; 
+      model-opacity="0"
+  ></a-entity> 
 
-&lt;a-entity
-    id=&quot;mountainEntity&quot;
-    gltf-model=&quot;#mountainBase&quot;
-    material=&quot;
-    src: #mountainTexture&quot;
-    normalMap=&quot;src: #mountainNormal&quot;
-    alphaMap=&quot;#alpha&quot;
-      effects=&quot;bloom, fxaa, godrays&quot; 
-    bloom=&quot;
+<a-entity
+    id="mountainEntity"
+    gltf-model="#mountainBase"
+    material="
+    src: #mountainTexture"
+    normalMap="src: #mountainNormal"
+    alphaMap="#alpha"
+      effects="bloom, fxaa, godrays" 
+    bloom="
     radius: 1;
     strength: 1;
-    threshold: .2&quot; 
+    threshold: .2" 
     godrays
     fxaa
-    gltf-morph=&quot;
+    gltf-morph="
      morphtarget: Height;
-     value: 1&quot;
-    scale= &quot;.4 .4 .4&quot;
-    position= &quot;-.2 -.08 0&quot;
-    rotation= &quot;35 90 90&quot;
-    model-opacity= &quot;0&quot;
-  &gt;&lt;/a-entity&gt;
+     value: 1"
+    scale= ".4 .4 .4"
+    position= "-.2 -.08 0"
+    rotation= "35 90 90"
+    model-opacity= "0"
+  ></a-entity>
 
-  &lt;a-entity
-    id=&quot;mountainTopography&quot;
-    gltf-model=&quot;#mountainTopo&quot;
-    gltf-morph=&quot;
+  <a-entity
+    id="mountainTopography"
+    gltf-model="#mountainTopo"
+    gltf-morph="
      morphtarget: Height;
-     value: 1&quot;
-    scale= &quot;.42 .42 .42&quot;
-    position= &quot;-.2 -.08 0&quot;
-    rotation= &quot;35 90 90&quot;
-  &gt;&lt;/a-entity&gt;    
+     value: 1"
+    scale= ".42 .42 .42"
+    position= "-.2 -.08 0"
+    rotation= "35 90 90"
+  ></a-entity>    
 
-  &lt;/a-entity&gt; 
+  </a-entity> 
 
-  &lt;a-plane
-    id=&quot;plane&quot;
-    width=&quot;1920&quot;
-    height=&quot;1080&quot;
-    rotation= &quot;0 0 0&quot;
-    position= &quot;0 0 0&quot;
+  <a-plane
+    id="plane"
+    width="1920"
+    height="1080"
+    rotation= "0 0 0"
+    position= "0 0 0"
     visible= false
-    model-opacity=&quot;0.2&quot;
-    effects=&quot;bloom, fxaa, godrays&quot; 
-    bloom=&quot;
+    model-opacity="0.2"
+    effects="bloom, fxaa, godrays" 
+    bloom="
     radius: 1;
     strength: 1;
-    threshold: .2&quot; 
+    threshold: .2" 
     godrays
     fxaa
-  &gt;&lt;/a-plane&gt; 
-&lt;/a-scene&gt;</pre>
-</body>
-</html>
+  ></a-plane> 
+</a-scene>
