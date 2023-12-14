@@ -1,0 +1,113 @@
+<!-- Copyright (c) 2023 8th Wall, Inc. -->
+<!-- body.html is optional; elements will be added to your html body after app.js is loaded.        renderer="colorManagement: true" -->
+<a-scene
+  id="mainScene"
+  landing-page
+  cursor="rayOrigin: mouse;
+  objects: .cantap"
+  effects="bloom, fxaa, godrays" 
+  bloom="
+  radius: 1;
+  strength: 1;
+  threshold: .2" 
+  godrays
+  fxaa
+  xrextras-loading
+  button-behavior
+  xrextras-runtime-error
+  xrweb="disableWorldTracking: true;
+          allowedDevices: any">  
+  <a-camera
+    id="camera"
+    position="0 8 8"
+    raycaster="objects: .cantap"
+    post-processing="enabled: true">
+  </a-camera> 
+
+  <canvas id="camerafeed"></canvas>
+
+  <a-assets>
+    <a-asset-item id="mountainBase" src="assets/Mountainz.gltf"></a-asset-item>
+    <a-asset-item id="mountainTopo" src="assets/Mountain_Topo.glb"></a-asset-item>
+    <img id="mountainTexture" src="assets/DH_MAT_MountainTop_Base_color_ReducedResolution.jpg">
+    <img id="mountainNormal" src="assets/DH_T_MountainTop_Normal.png">  
+    <img id="enter1" src="assets/Enter-1.png"> 
+    <img id="enter2" src="assets/Enter-2.png"> 
+    <img id="enter3" src="assets/Enter-3.png"> 
+    <img id="enter4" src="assets/Enter-4.png"> 
+    <img id="enter5" src="assets/Enter-5.png"> 
+    <img id="enter6" src="assets/Enter-6.png">  
+    <img id="alpha" src="assets/dirt.png"> 
+    <a-asset-item id="sfx-shimmer" src="assets/sfx-shimmer.mp3"></a-asset-item>
+    <a-asset-item id="ambient" src="assets/ambient.mp3"></a-asset-item>
+    <a-asset-item id="buttonAudio" src="assets/buttonAudio.mp3"></a-asset-item>
+    <a-asset-item id="linkButton" src="assets/LinkButtonDoublesided.glb"></a-asset-item>
+    </a-assets>
+
+
+  <a-entity image-target-card="name: NotebookTargetImage" visible="false">  
+
+  <a-entity
+      id="enter"
+      class="cantap"
+      gltf-model="#linkButton" 
+      rotation= "90 0 0"
+      position= "-0.04 0.1 0.4"
+      scale= ".04 .04 .04"
+      visible= false
+      model-opacity="0"
+  ></a-entity> 
+
+<a-entity
+    id="mountainEntity"
+    gltf-model="#mountainBase"
+    material="
+    src: #mountainTexture"
+    normalMap="src: #mountainNormal"
+    alphaMap="#alpha"
+      effects="bloom, fxaa, godrays" 
+    bloom="
+    radius: 1;
+    strength: 1;
+    threshold: .2" 
+    godrays
+    fxaa
+    gltf-morph="
+     morphtarget: Height;
+     value: 1"
+    scale= ".4 .4 .4"
+    position= "-.2 -.08 0"
+    rotation= "35 90 90"
+    model-opacity= "0"
+  ></a-entity>
+
+  <a-entity
+    id="mountainTopography"
+    gltf-model="#mountainTopo"
+    gltf-morph="
+     morphtarget: Height;
+     value: 1"
+    scale= ".42 .42 .42"
+    position= "-.2 -.08 0"
+    rotation= "35 90 90"
+  ></a-entity>    
+
+  </a-entity> 
+
+  <a-plane
+    id="plane"
+    width="1920"
+    height="1080"
+    rotation= "0 0 0"
+    position= "0 0 0"
+    visible= false
+    model-opacity="0.2"
+    effects="bloom, fxaa, godrays" 
+    bloom="
+    radius: 1;
+    strength: 1;
+    threshold: .2" 
+    godrays
+    fxaa
+  ></a-plane> 
+</a-scene>
